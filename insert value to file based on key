@@ -1,0 +1,27 @@
+import pandas as pd
+import csv
+import glob
+import os
+
+path = directory
+os.chdir(path)
+
+extension = 'csv'
+csv_list = [i for i in glob.glob('*.{}'.format (extension))]
+
+path2 = 'directory'
+os.chdir(path2)
+
+full_scrape = pd.read_excel(excel keys and values)
+UID_dict=full_scrape.set_index('UID').T.to_dict()
+
+os.chdir(path)
+for scrape in csv_list2:
+    toAdd = [UID_dict[scrape].get('start_urls')]
+    with open(scrape+'.csv', "r") as infile:
+        reader = list(csv.reader(infile))
+        reader.insert(1, toAdd)
+    with open(scrape+'.csv', "w", newline='') as outfile:
+        writer = csv.writer(outfile)
+        for line in reader:
+            writer.writerow(line)
