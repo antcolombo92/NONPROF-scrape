@@ -1,0 +1,16 @@
+import pandas as pd
+import os
+import glob
+import csv
+
+path = 'C:/Users/antco/Documents/SPEA/DR.G_GA/All Sites CSV V2'
+extension = 'csv'
+os.chdir(path)
+csv_list = [i for i in glob.glob('*.{}'.format (extension))]
+
+f = open('test.csv', 'w')
+
+for scrape in csv_list:
+    with open(scrape, 'r') as content_file:
+        content = content_file.read()
+        f.write(str(content.count("responseurl"))+',')
