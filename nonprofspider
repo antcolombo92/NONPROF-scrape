@@ -1,0 +1,25 @@
+import scrapy
+from scrapy.spiders import CrawlSpider, Rule
+from scrapy.linkextractors import LinkExtractor
+from NONPROF.items import NonprofItem
+from scrapy.http import Request
+import re
+import os
+
+os.chdir (directory)
+
+class Nonprof(CrawlSpider):
+    name = "nonprof"
+    allowed_domains = []
+    start_urls = []
+    rules = [
+        Rule(LinkExtractor(
+            allow=['.*']),
+             callback='parse_item',
+             follow=True)
+        ]
+
+    def parse_item (self, response):
+        item = NonprofItem()
+        item['responseurl'] = response.url
+        yield item
